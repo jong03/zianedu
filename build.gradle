@@ -2,7 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.4.4'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
-    id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
+//    id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
 }
 
 group = 'com.zian'
@@ -38,10 +38,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
-    implementation 'com.querydsl:querydsl-jpa'
-    implementation 'com.querydsl:querydsl-apt'
-
     runtime 'org.postgresql:postgresql'
+//    implementation 'com.querydsl:querydsl-jpa'
+//    implementation 'com.querydsl:querydsl-apt'
+
+
 
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     implementation 'org.springframework.boot:spring-boot-configuration-processor'
@@ -53,27 +54,27 @@ test {
     useJUnitPlatform()
 }
 
-// querdsl setting
-def querydslSrcDir = 'src/main/generated'
-
-querydsl {
-    library = "com.querydsl:querydsl-apt"
-    jpa = true
-    querydslSourcesDir = querydslSrcDir
-}
-compileQuerydsl{
-    options.annotationProcessorPath = configurations.querydsl
-}
-configurations {
-    querydsl.extendsFrom compileClasspat
-}
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src/main/java', querydslSrcDir]
-        }
-    }
-}
+//// querdsl setting
+//def querydslSrcDir = 'src/main/generated'
+//
+//querydsl {
+//    library = "com.querydsl:querydsl-apt"
+//    jpa = true
+//    querydslSourcesDir = querydslSrcDir
+//}
+//compileQuerydsl{
+//    options.annotationProcessorPath = configurations.querydsl
+//}
+//configurations {
+//    querydsl.extendsFrom compileClasspat
+//}
+//sourceSets {
+//    main {
+//        java {
+//            srcDirs = ['src/main/java', querydslSrcDir]
+//        }
+//    }
+//}
 
 compileJava {
     options.compilerArgs = [
