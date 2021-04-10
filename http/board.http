@@ -1,0 +1,23 @@
+### 게시판 - 등록
+POST http://localhost:8080/api/v1/board
+Content-Type: application/json
+
+{
+  "writer": "최종삼",
+  "title": "제목",
+  "content": "글 내용"
+}
+
+### 게시판 - 수정
+PUT http://localhost:8080/api/v1/board/1
+Content-Type: application/json
+
+{
+  "writer": "최종삼1",
+  "title": "제목1",
+  "content": "글 내용1"
+}
+
+### 게시판 - 삭제
+DELETE http://localhost:8080/api/v1/board/1
+Content-Type: application/json

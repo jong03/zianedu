@@ -3,9 +3,9 @@ spring:
     active: localhost
   application:
     name: zian-platform
-#  messages:
-#    basename: i18n/exception
-#    encoding: UTF-8
+  messages:
+    basename: i18n/exception
+    encoding: UTF-8
 
 server:
   port: 8080

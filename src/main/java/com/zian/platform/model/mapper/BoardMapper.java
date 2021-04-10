@@ -8,16 +8,10 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 @Mapper(config = MapStructConfig.class)
-public interface BoardMapper extends BaseGenericMapper<BoardDto, BoardEntity> {
+public interface BoardMapper  {
 
-  @Override
-  @Mapping(source = "Request.writer",           target = "writer")
-  @Mapping(source = "Request.title",           target = "title")
-  @Mapping(source = "Request.content",           target = "content")
-  BoardEntity toEntity(BoardDto source);
+  BoardEntity toEntity(BoardDto.Request source);
 
-//  @Mapping(target = "createdAt", expression = "java(java.time.LocalDateTime.now().toInstant(java.time.ZoneOffset.UTC).toEpochMilli())")
-//  @Mapping(target = "origin", constant = "zoo-push")
-//  @Mapping(source = ".", target = "payload")
-//  KafkaPayloadDto<FulfillmentDto> toKafkaPayload(FulfillmentDto source);
+  BoardDto.Response toDto(BoardEntity source);
+
 }
