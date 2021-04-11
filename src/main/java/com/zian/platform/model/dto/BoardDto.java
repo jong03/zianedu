@@ -28,7 +28,7 @@ public class BoardDto {
   @Setter
   @Getter
   @Builder
-  @NoArgsConstructor
+//  @NoArgsConstructor
   @AllArgsConstructor
   @JsonIgnoreProperties(ignoreUnknown = true)
   @ToString
