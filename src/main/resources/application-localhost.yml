@@ -3,9 +3,9 @@ spring:
     activate:
       on-profile: localhost
   datasource:
-    url: jdbc:postgresql://localhost:5432/zoo
-    username: zoo
-    password: zoo
+    url: jdbc:postgresql://localhost:5432/zian
+    username: zian
+    password: zian
     driver-class-name: org.postgresql.Driver
     hikari:
       maxPoolSize: 3
