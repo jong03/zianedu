@@ -6,6 +6,12 @@ spring:
   messages:
     basename: i18n/exception
     encoding: UTF-8
+  thymeleaf:
+    prefix: classpath:templates/
+    check-template-location: true
+    suffix: .html
+    mode: HTML
+    cache: false
 
 server:
   port: 8080

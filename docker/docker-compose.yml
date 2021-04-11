@@ -7,9 +7,9 @@ services:
     volumes:
       - zian-pgdb:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=zian
-      - POSTGRES_USER=zian
-      - POSTGRES_PASSWORD=zian
+      - POSTGRES_DB=zoo
+      - POSTGRES_USER=zoo
+      - POSTGRES_PASSWORD=zoo
       - POSTGRES_INITDB_ARGS=--encoding=UTF-8
     ports:
       - "5432:5432"

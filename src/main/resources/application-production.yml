@@ -2,3 +2,27 @@ spring:
   config:
     activate:
       on-profile: production
+  datasource:
+    url: jdbc:postgresql://localhost:5432/zoo
+    username: zoo
+    password: zoo
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maxPoolSize: 3
+      minimumIdle: 3
+      idleTimeout: 30000
+      maxLifetime: 2000000
+      connectionTimeout: 30000
+      poolName: zoo-main
+    jpa:
+      open-in-view: true
+      show-sql: true
+      properties:
+        hibernate:
+          format_sql: true
+          jdbc:
+            lob:
+              non_contextual_creation: true
+      hibernate:
+        ddl-auto: validate
+      generate-ddl: false

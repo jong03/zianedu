@@ -26,9 +26,3 @@ spring:
     hibernate:
       ddl-auto: validate
     generate-ddl: false
-  thymeleaf:
-    prefix: classpath:templates/
-    check-template-location: true
-    suffix: .html
-    mode: HTML
-    cache: false
