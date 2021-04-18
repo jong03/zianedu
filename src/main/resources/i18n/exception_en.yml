@@ -1,3 +1,4 @@
 zian:
   error:
     board_notfound: "board not found."
+    role_notfound: "role not found."

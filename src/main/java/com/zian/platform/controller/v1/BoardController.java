@@ -34,7 +34,7 @@ public class BoardController {
 
   /** 게시글 - 수정 */
   @PutMapping(value = "/{boardId}")
-  public ResponseEntity<Response> update(@PathVariable("boardId") Long boardId, @RequestBody BoardDto.Request boardRequestDto) {
+  public ResponseEntity<Response> update(@PathVariable("boardId") Long boardId, @RequestBody  BoardDto.Request boardRequestDto) {
     return new ResponseEntity<BoardDto.Response>(boardService.update(boardId, boardRequestDto), HttpStatus.CREATED);
   }
 

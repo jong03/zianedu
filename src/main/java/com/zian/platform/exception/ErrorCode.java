@@ -7,7 +7,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum ErrorCode {
 
-  BOARD_NOTFOUND(400, "BAD_REQUEST", "zian.error.board_notfound");
+  BOARD_NOTFOUND(400, "BAD_REQUEST", "zian.error.board_notfound"),
+  ROLE_NOTFOUND(400, "BAD_REQUEST", "zian.error.role_notfound");
 
   private final Integer statusCode;
   private final String category;

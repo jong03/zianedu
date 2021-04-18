@@ -1,9 +1,12 @@
 package com.zian.platform.service;
 
 
+import com.zian.platform.exception.ApiErrorException;
+import com.zian.platform.exception.ErrorCode;
 import com.zian.platform.model.dto.RoleDto;
 import com.zian.platform.model.dto.UserDto;
 import com.zian.platform.model.entity.RoleEntity;
+import com.zian.platform.model.entity.UserEntity;
 import com.zian.platform.model.mapper.UserMapper;
 import com.zian.platform.repository.RoleRepository;
 import com.zian.platform.repository.UserRepository;
@@ -28,17 +31,25 @@ public class UserService {
     @Transactional
     public UserDto.Response save(UserDto.Request userRequestDto) {
 
-
         /*권한저장이 필요함*/
-        var role = roleRepository.findById(1l);
-        var roleEntity = role.get();
-        List<RoleDto.Request> roles = new ArrayList<>();
-        RoleDto.
-        roles.add(roleEntity);
+        var roleEntity = roleRepository.findById(1l).orElseThrow(
+            () -> new ApiErrorException(ErrorCode.ROLE_NOTFOUND)
+        );
 
-        userRequestDto.setRoles(roles);
+        UserEntity userEntity = userMapper.toEntity(userRequestDto);
+        userEntity.setRoles(List.of(roleEntity));
+
+        // 사용자에게 Role을 매핑해서 사용자 저장하면 된다.
+        // 저장
+//        UserEntity userEntity = userRepository.save(
+//            UserEntity.builder()
+//                .username(userRequestDto.getUsername())
+//                .password(userRequestDto.getPassword())
+//                .roles(List.of(roleEntity)).build()
+//        );
+
         return userMapper.toDto(userRepository.save(
-                userMapper.toEntity(userRequestDto)
+                userEntity
         ));
     }
 
